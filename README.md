@@ -68,14 +68,31 @@ The project follows a **clean architecture** approach with three main layers:
 -  **Bootstrap 5** for responsive design  
 
 ---
+## ⚙️ Setup  
 
+### 📌 Prerequisites  
+
+🔹 **.NET 7.0 SDK** or later  
+🔹 **SQL Server** or **SQL Server Express LocalDB**  
+🔹 **Visual Studio 2022** or **Visual Studio Code**  
+
+---
+
+### 🚀 Installation  
+
+1. Clone the repository:
+ 
+2. Update the connection string in `TicTacToe.Web/appsettings.json` if needed.
+
+3. Build and run the application:
+ 
 ## 🎲 How to Play  
 
-1️⃣ Start a new game:  
+1. Start a new game:  
    - Select **"Play against another player"** or **"Play against AI"**  
-2️⃣ Click on any empty cell to make a move  
-3️⃣ The game will **automatically detect** wins or draws  
-4️⃣ After a game ends, you can **replay** or return to the home page  
+2. Click on any empty cell to make a move  
+3. The game will **automatically detect** wins or draws  
+4. After a game ends, you can **replay** or return to the home page  
 
 ---
 
