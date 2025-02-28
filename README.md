@@ -2,8 +2,7 @@ Tic Tac Toe Game
 
 A full-stack Tic Tac Toe game built with ASP.NET Core and React. This project demonstrates a clean architecture approach with separate layers for core business logic, infrastructure, and web presentation.
 
-
-ScreenShots: 
+ 
 ## ScreenShots:
 
 <img src="https://github.com/user-attachments/assets/dae4df1f-6dd1-467b-aea7-5a29e6716877" width="500">
