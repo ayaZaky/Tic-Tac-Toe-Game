@@ -30,23 +30,23 @@ A full-stack Tic Tac Toe game built with **ASP.NET Core** and **React**. This pr
 
 ---
 
-## 🏗️ Project Structure  
+## 📌 Project Structure  
 
 The project follows a **clean architecture** approach with three main layers:  
 
-### 📌 TicTacToe.Core  
+### TicTacToe.Core  
 🔹 Contains domain entities, interfaces, and business logic:  
 - Game entity  
 - `TicTacToeService` for game rules & logic  
 - Repository interfaces  
 
-### 🏛️ TicTacToe.Infrastructure  
+### TicTacToe.Infrastructure  
 🔹 Implements infrastructure concerns:  
 - **Entity Framework Core** DbContext  
 - Repository implementations (**EF Core**)  
 - Database configuration  
 
-### 🌍 TicTacToe.Web  
+### TicTacToe.Web  
 🔹 The **ASP.NET Core MVC** web application:  
 - **Controllers** for game actions  
 - **Views** for the user interface  
@@ -58,14 +58,14 @@ The project follows a **clean architecture** approach with three main layers:
 ## 🛠️ Technologies Used  
 
 ### 🔹 **Backend**  
-- ⚡ **ASP.NET Core 9.0**  
-- 🛢️ **Entity Framework Core 9.0**  
-- 🗄️ **SQL Server**  
+-  **ASP.NET Core 9.0**  
+-  **Entity Framework Core 9.0**  
+-  **SQL Server**  
 
 ### 🔹 **Frontend**  
-- 🎨 **HTML5, CSS3, JavaScript**  
-- 🔗 **jQuery** for AJAX calls  
-- 🎭 **Bootstrap 5** for responsive design  
+-  **HTML5, CSS3, JavaScript**  
+-  **jQuery** for AJAX calls  
+-  **Bootstrap 5** for responsive design  
 
 ---
 
