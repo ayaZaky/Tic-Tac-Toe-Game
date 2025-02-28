@@ -6,22 +6,14 @@ A full-stack Tic Tac Toe game built with ASP.NET Core and React. This project de
 ScreenShots: 
 ## ScreenShots:
 
-<img src="https://github.com/user-attachments/assets/dae4df1f-6dd1-467b-aea7-5a29e6716877" width="300">
-<img src="https://github.com/user-attachments/assets/58576dfe-8c56-4e0f-9fdf-c2e42903e9a4" width="300">
-<img src="https://github.com/user-attachments/assets/269c29b2-9ab3-4b6d-b26e-433c7a1e9398" width="300">
-<img src="https://github.com/user-attachments/assets/c3ec108a-1c28-4f71-858c-50db0889b2f2" width="300">
-<img src="https://github.com/user-attachments/assets/7dca8c3b-6f69-4b33-a88a-218d6b625a56" width="300">
-<img src="https://github.com/user-attachments/assets/1a25be86-156c-4b75-953a-c91c8c9fcda4" width="300">
-<img src="https://github.com/user-attachments/assets/7646b118-ef43-4aa2-a711-b11220c82e92" width="300">
-
-![image](https://github.com/user-attachments/assets/dae4df1f-6dd1-467b-aea7-5a29e6716877)
-![image](https://github.com/user-attachments/assets/58576dfe-8c56-4e0f-9fdf-c2e42903e9a4)
-![image](https://github.com/user-attachments/assets/269c29b2-9ab3-4b6d-b26e-433c7a1e9398)
-![image](https://github.com/user-attachments/assets/c3ec108a-1c28-4f71-858c-50db0889b2f2)
-![image](https://github.com/user-attachments/assets/7dca8c3b-6f69-4b33-a88a-218d6b625a56)
-![image](https://github.com/user-attachments/assets/1a25be86-156c-4b75-953a-c91c8c9fcda4)
-![image](https://github.com/user-attachments/assets/7646b118-ef43-4aa2-a711-b11220c82e92)
-
+<img src="https://github.com/user-attachments/assets/dae4df1f-6dd1-467b-aea7-5a29e6716877" width="500">
+<img src="https://github.com/user-attachments/assets/58576dfe-8c56-4e0f-9fdf-c2e42903e9a4" width="500">
+<img src="https://github.com/user-attachments/assets/269c29b2-9ab3-4b6d-b26e-433c7a1e9398" width="500">
+<img src="https://github.com/user-attachments/assets/c3ec108a-1c28-4f71-858c-50db0889b2f2" width="500">
+<img src="https://github.com/user-attachments/assets/7dca8c3b-6f69-4b33-a88a-218d6b625a56" width="500">
+<img src="https://github.com/user-attachments/assets/1a25be86-156c-4b75-953a-c91c8c9fcda4" width="500">
+<img src="https://github.com/user-attachments/assets/7646b118-ef43-4aa2-a711-b11220c82e92" width="500">
+ 
 ## Live Demo
 
 Try the game online: [http://tictac.somee.com/](http://tictac.somee.com/)
