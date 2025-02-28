@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Tic-Tac-Toe";
+}
+<div class="flex flex-col justify-center items-center h-screen text-center">
+
+    <img src="~/assets/loader.png" alt="Game Logo" class="glow-logo w-[25rem] md:w-[30rem] lg:w-[35rem]">
+
+    <div class=" flex space-x-12">
+        <div class="flex justify-center items-center gap-4">
+            <form asp-action="Start1" class="flex gap-4 relative inline-block border-[6px] border-blue-400 shadow-2xl shadow-blue-500 animate-glow overflow-hidden
+                  rounded-[20px] xs:rounded-[22px] sm:rounded-[25px] md:rounded-[30px] lg:rounded-[40px] mt-12">
+              
+                <!-- player 1 -->
+                <button type="submit" onclick="playClickSound(event, this)">
+                   
+                    <img src="~/assets/button_oneplayer.png" alt="One Player" class="w-40 md:w-48 lg:w-60">
+                </button> 
+            </form>
+            
+            <form asp-action="Start2" class="flex gap-4 relative inline-block border-[6px] border-blue-400 shadow-2xl shadow-blue-500 animate-glow overflow-hidden
+                  rounded-[20px] xs:rounded-[22px] sm:rounded-[25px] md:rounded-[30px] lg:rounded-[40px] mt-12">
+                <!-- player 2 -->
+                <button type="submit" onclick="playClickSound(event, this)">
+                 
+                    <img src="~/assets/button_twoplayer.png" alt="Two Players" class="w-40 md:w-48 lg:w-60">
+                </button>
+            </form>
+        </div>   
+    </div>
+    <!-- Home -->
+    <button onclick="window.location.href='@Url.Action("Index", "Game")'" class="fixed-home-btn">
+        <img src="/assets/button_exit.png" alt="Home">
+    </button>
+</div>
+ 

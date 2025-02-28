@@ -1,0 +1,17 @@
+D:\TicTacToe\TicTacToe.Infrastructure\bin\Debug\net9.0\TicTacToe.Infrastructure.deps.json
+D:\TicTacToe\TicTacToe.Infrastructure\bin\Debug\net9.0\TicTacToe.Infrastructure.runtimeconfig.json
+D:\TicTacToe\TicTacToe.Infrastructure\bin\Debug\net9.0\TicTacToe.Infrastructure.dll
+D:\TicTacToe\TicTacToe.Infrastructure\bin\Debug\net9.0\TicTacToe.Infrastructure.pdb
+D:\TicTacToe\TicTacToe.Infrastructure\bin\Debug\net9.0\TicTacToe.Core.dll
+D:\TicTacToe\TicTacToe.Infrastructure\bin\Debug\net9.0\TicTacToe.Core.pdb
+D:\TicTacToe\TicTacToe.Infrastructure\obj\Debug\net9.0\TicTacToe.Infrastructure.csproj.AssemblyReference.cache
+D:\TicTacToe\TicTacToe.Infrastructure\obj\Debug\net9.0\TicTacToe.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\TicTacToe\TicTacToe.Infrastructure\obj\Debug\net9.0\TicTacToe.Infrastructure.AssemblyInfoInputs.cache
+D:\TicTacToe\TicTacToe.Infrastructure\obj\Debug\net9.0\TicTacToe.Infrastructure.AssemblyInfo.cs
+D:\TicTacToe\TicTacToe.Infrastructure\obj\Debug\net9.0\TicTacToe.Infrastructure.csproj.CoreCompileInputs.cache
+D:\TicTacToe\TicTacToe.Infrastructure\obj\Debug\net9.0\TicTacTo.1793E72A.Up2Date
+D:\TicTacToe\TicTacToe.Infrastructure\obj\Debug\net9.0\TicTacToe.Infrastructure.dll
+D:\TicTacToe\TicTacToe.Infrastructure\obj\Debug\net9.0\refint\TicTacToe.Infrastructure.dll
+D:\TicTacToe\TicTacToe.Infrastructure\obj\Debug\net9.0\TicTacToe.Infrastructure.pdb
+D:\TicTacToe\TicTacToe.Infrastructure\obj\Debug\net9.0\TicTacToe.Infrastructure.genruntimeconfig.cache
+D:\TicTacToe\TicTacToe.Infrastructure\obj\Debug\net9.0\ref\TicTacToe.Infrastructure.dll

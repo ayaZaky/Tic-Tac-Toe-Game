@@ -1,0 +1,302 @@
+﻿@model TicTacToe.Core.Models.Game
+@{
+    ViewData["Title"] = "Tic Tac Toe";
+}   
+<div class="container mx-auto px-4 py-8 text-center text-white h-screen flex flex-col items-center justify-center">
+
+    <h1 class="text-6xl font-bold text-yellow-300 text-center opacity-90 drop-shadow-[0_0_15px_#00aaff] mt-12">Tic Tac Toe</h1>
+
+    <div class="flex flex-col md:flex-row items-center justify-center gap-8 mb-8 w-full h-screen">
+
+
+        <div class="player-card text-center p-4 rounded-lg shadow-lg">
+            <div class="player-card text-center p-4 rounded-lg shadow-lg">
+                <div class="flex items-center justify-center gap-16">
+                    <div class="relative">
+                        <img src="~/assets/item_player.png" alt="Player 1" class="w-20 sm:w-24 md:w-32 lg:w-40">  
+                        <img id="player1-icon" src="~/assets/icon_o_1.png" alt="O" class="absolute w-10 md:w-15 lg:w-16 glow-img-o"
+                             style="top: 35%; left: 50%; transform: translate(-50%, -50%);">
+                        <div id="player1-label" class="player-label  absolute bottom-2 sm:bottom-4 md:bottom-6 lg:bottom-8 w-full text-blue text-center font-extrabold text-sm sm:text-base md:text-lg lg:text-xl font-sans rounded-md md:translate-y-2 lg:translate-y-1">
+                            Player 1
+                        </div>  
+                    </div>    
+                </div>
+                <p id="player1-turn" class="text-xs mt-1">@(Model.CurrentPlayer == 'O' ? "Your turn" : "")</p>
+            </div>    
+        </div>
+
+        <div class="grid grid-cols-3 md:grid-cols-3 gap-3 p-6 rounded-xl shadow-2xl border-2 border-blue-200 glow-grid" id="gameBoard">
+
+            @for (int i = 0; i < 3; i++)
+            {
+                @for (int j = 0; j < 3; j++)
+                {
+                    <button class="min-w-[4rem] min-h-[4rem] sm:min-w-[5rem] sm:min-h-[5rem] md:min-w-[6rem] md:min-h-[6rem] max-w-full max-h-full bg-blue-500 bg-opacity-30 hover:bg-blue-400 rounded-2xl flex items-center justify-center game-cell border-2 border-yellow-500 glow-cell"
+                            data-row="@i" data-col="@j"> 
+                        @if (Model.BoardState[i * 3 + j] == 'X')
+                        {
+                            <img src="/assets/icon_x_1.png" alt="X" class="w-20 glow-img-x">
+                        }
+                        else if (Model.BoardState[i * 3 + j] == 'O')
+                        {
+                            <img src="/assets/icon_o_1.png" alt="O" class="w-20 glow-img-o">
+                        }
+                    </button>
+                }
+            }
+        </div>     
+        <div class="player-card text-center p-4 rounded-lg   shadow-lg">
+            <div class="player-card text-center p-4 rounded-lg   shadow-lg">
+                <div class="flex items-center justify-center gap-16">
+                    <div class="relative">
+                        <img src="~/assets/item_player.png" alt="Player 2" class="w-20 sm:w-24 md:w-32 lg:w-40">    
+                        <img id="player2-icon" src="~/assets/icon_x_1.png" alt="O" class="absolute w-10 md:w-15 lg:w-16 glow-img-x"
+                             style="top: 35%; left: 50%; transform: translate(-50%, -50%);">
+                        <div id="player2-label" class="player-label absolute bottom-2 sm:bottom-4 md:bottom-6 lg:bottom-8 w-full text-blue text-center font-extrabold text-sm sm:text-base md:text-lg lg:text-xl font-sans rounded-md md:translate-y-2 lg:translate-y-1">
+                            Player 2
+                        </div>  
+                    </div>
+                    
+                </div>
+                <p id="player2-turn" class="text-xs mt-1">@(Model.CurrentPlayer == 'X' ? "Your turn" : "")</p>
+            </div>
+            
+        </div>
+    </div>
+
+    <!--  Home -->
+    <button onclick="window.location.href='@Url.Action("Index", "Game")'" class="fixed-home-btn">
+        <img src="/assets/button_exit.png" alt="Home">
+    </button>
+</div>
+@section Scripts {
+    <script>
+        let isVsAI;  
+        document.addEventListener('DOMContentLoaded', function () {
+            const gameId = @Model.Id;
+            isVsAI = @Json.Serialize(Model.IsVsAI);
+            const cells = document.querySelectorAll('.game-cell');
+            let isGameComplete = @Json.Serialize(Model.IsComplete);
+            const playerTurnElements = document.querySelectorAll('.player-card p.text-xs');
+            const player2Label = document.getElementById("player2-label");
+
+            if (isVsAI) {
+                player2Label.textContent = "Computer";
+            }
+
+            cells.forEach(cell => {
+                cell.addEventListener('click', async () => {
+
+                    let moveSound = new Audio('/sounds/play1.mp3');  
+                    moveSound.play();
+                    if (isGameComplete || cell.innerHTML.trim() !== '') return;
+
+                    const row = parseInt(cell.dataset.row);
+                    const col = parseInt(cell.dataset.col);
+
+                    try {
+                        const response = await fetch('@Url.Action("MakeMove")', {
+                            method: 'POST',
+                            headers: {
+                                'Accept': 'application/json',
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({ gameId: gameId, row: row, col: col })
+                        });
+
+                        if (!response.ok) {
+                            throw new Error(`Server responded with status: ${response.status}`);
+                        }
+
+                        const data = await response.json();
+                          
+                        updateBoard(data.boardState);  
+                        updateTurn(data.currentPlayer);   
+                        highlightWinningCells(data.winningCells);   
+                        if (data.isComplete) {
+                            isGameComplete = true;  
+
+                            let winSound = new Audio('/sounds/win.mp3');
+                            let drawSound = new Audio('/sounds/win.mp3');
+
+                            if (data.winner) {
+                                winSound.play(); 
+                            } else {
+                                drawSound.play();  
+                            }   
+                            document.getElementById("player1-turn").textContent = "";
+                            document.getElementById("player2-turn").textContent = "";
+                                 setTimeout(() => {
+                                showPopup(data.winner ? data.winner : null);
+                            }, 800);
+                        } else if (isVsAI && data.currentPlayer === 'X') {
+                            
+                            setTimeout(() => makeAIMove(), 800);
+                        }
+
+                    } catch (error) {
+                        console.error('Error during move:', error);
+                    }
+                });
+            });    
+              function updateBoard(boardState) {
+                    cells.forEach((cell, index) => {
+                        cell.innerHTML = '';
+                        cell.classList.remove('winner-cell');  
+
+                        const value = boardState[index];
+                        if (value === 'X') {
+                            cell.innerHTML = '<img src="/assets/icon_x_1.png" alt="X" class="w-12 glow-img-x">';
+                        } else if (value === 'O') {
+                            cell.innerHTML = '<img src="/assets/icon_o_1.png" alt="O" class="w-12 glow-img-o">';
+                        }
+                    });
+                    }
+            function updateTurn(currentPlayer) {
+            
+            if (isGameComplete) {
+                        
+                    let winSound = new Audio('/sounds/win.mp3');
+                    let drawSound = new Audio('/sounds/win.mp3');
+
+                    if (data.winner) {
+                        winSound.play();  
+                    } else {
+                        drawSound.play(); 
+                            }
+                document.getElementById("player1-turn").textContent = "";
+                document.getElementById("player2-turn").textContent = "";   
+                return;
+            }  
+           
+            if (isVsAI) {
+                document.getElementById("player1-turn").textContent = currentPlayer === 'O' ? "Your turn" : "";
+                document.getElementById("player2-turn").textContent = currentPlayer === 'X' ? "Thinking.." : "";
+                 
+            } else {                                                                
+                document.getElementById("player1-turn").textContent = currentPlayer === 'O' ? "Your turn" : "";
+                document.getElementById("player2-turn").textContent = currentPlayer === 'X' ? "Your turn" : "";
+            }
+         
+             
+               }
+            function highlightWinningCells(winningCells) {
+                if (!winningCells || winningCells.length === 0) return;
+                winningCells.forEach(index => {
+                    cells[index].classList.add('winner-cell');
+                });
+            }
+
+            async function makeAIMove() {
+                try {
+                    let moveSound = new Audio('/sounds/play2.mp3');
+                    const response = await fetch('@Url.Action("MakeAIMove")', {
+                        method: 'POST',
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ gameId: gameId })
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`Server responded with status: ${response.status}`);
+                    }
+                    
+                    const data = await response.json();
+                    updateBoard(data.boardState);
+                    moveSound.play();
+                    updateTurn(data.currentPlayer);
+                    highlightWinningCells(data.winningCells);
+
+                            if (data.isComplete) {
+                            isGameComplete = true;
+
+                            let winSound = new Audio('/sounds/win.mp3');
+                            let drawSound = new Audio('/sounds/win.mp3');
+
+                            if (data.winner) {
+                                winSound.play();
+                            } else {
+                                drawSound.play();
+                            }
+
+                            document.getElementById("player1-turn").textContent = "";
+                            document.getElementById("player2-turn").textContent = "";
+
+                            setTimeout(() => {
+                                showPopup(data.winner ? data.winner : null);
+                            }, 800);
+                        }
+
+                } catch (error) {
+                    console.error('Error during AI move:', error);
+                }
+            }
+                
+
+        
+
+            function showPopup(winner) {
+            const popup = document.createElement("div");
+            popup.className = "popup-window";
+
+            let message = "";
+            let iconSrc = "";
+            
+            if (winner) {
+                if (isVsAI) {
+                    if (winner === 'O') {
+                        message = " You Win 🎉";
+                        iconSrc = "/assets/trophy.png";  
+                    } else {
+                        message = "You Lose! <br><h2>Try again next time!</h2>";
+                        iconSrc = "/assets/lose.png";  
+                    }
+                } else {
+                    message = winner === 'O' ? "Player 1 Wins 🎉" : "Player 2 Wins 🎉";
+                    iconSrc = "/assets/trophy.png"; 
+                }
+            } else {
+                message = "It's a draw!";
+                iconSrc = "/assets/neutral.png";  
+            }
+
+                popup.innerHTML = `
+            <div class="popup-content">
+                <img src="${iconSrc}" alt="Game Result" class="result-icon">
+                <h1>${message}</h1>
+                <div class="popup-buttons">
+                    <button onclick="window.location.href='@Url.Action("Index", "Game")'" class="home-btn" onclick="playClickSound(event, this)">
+                        <img src="/assets/home-button.png" alt="Home">
+                        Home
+                    </button>
+                    <button onclick="restartGame()" class="play-again-btn" onclick="playClickSound(event, this)">
+                        <img src="/assets/loading-arrow.png" alt="RePlay">
+                         Replay
+                    </button>
+                </div>
+            </div>
+             `;
+            document.body.appendChild(popup);
+           }
+                 
+        });
+
+         function restartGame() {
+            let form = document.createElement('form');
+            form.method = 'post';
+            form.action = '@Url.Action("CreateGame", "Game")';
+
+            let input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = 'isVsAI';
+            input.value = isVsAI;
+
+            form.appendChild(input);
+            document.body.appendChild(form);
+            form.submit();
+        }
+    </script>
+
+   }

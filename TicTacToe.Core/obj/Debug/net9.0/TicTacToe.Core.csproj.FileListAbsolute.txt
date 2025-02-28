@@ -1,0 +1,11 @@
+D:\TicTacToe\TicTacToe.Core\bin\Debug\net9.0\TicTacToe.Core.deps.json
+D:\TicTacToe\TicTacToe.Core\bin\Debug\net9.0\TicTacToe.Core.dll
+D:\TicTacToe\TicTacToe.Core\bin\Debug\net9.0\TicTacToe.Core.pdb
+D:\TicTacToe\TicTacToe.Core\obj\Debug\net9.0\TicTacToe.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\TicTacToe\TicTacToe.Core\obj\Debug\net9.0\TicTacToe.Core.AssemblyInfoInputs.cache
+D:\TicTacToe\TicTacToe.Core\obj\Debug\net9.0\TicTacToe.Core.AssemblyInfo.cs
+D:\TicTacToe\TicTacToe.Core\obj\Debug\net9.0\TicTacToe.Core.csproj.CoreCompileInputs.cache
+D:\TicTacToe\TicTacToe.Core\obj\Debug\net9.0\TicTacToe.Core.dll
+D:\TicTacToe\TicTacToe.Core\obj\Debug\net9.0\refint\TicTacToe.Core.dll
+D:\TicTacToe\TicTacToe.Core\obj\Debug\net9.0\TicTacToe.Core.pdb
+D:\TicTacToe\TicTacToe.Core\obj\Debug\net9.0\ref\TicTacToe.Core.dll

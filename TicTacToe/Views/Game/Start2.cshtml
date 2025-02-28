@@ -1,0 +1,50 @@
+﻿<div class="flex flex-col items-center justify-center h-screen text-white">
+    <!-- اللاعبين -->
+    <div class="flex items-center justify-center gap-16">
+        <!-- player 1 -->
+        <div class="relative">
+            <img src="~/assets/item_player.png" alt="Player 1" class="w-40 md:w-48 lg:w-56">
+            <img id="player1-icon" src="~/assets/icon_o_1.png" alt="O" class="absolute w-16 md:w-20 lg:w-24 glow-img-o"
+                 style="top: 35%; left: 50%; transform: translate(-50%, -50%);">
+            <div id="player1-label"
+                 class="player-label absolute bottom-2 sm:bottom-4 md:bottom-6 w-full text-blue text-center py-1 sm:py-2 font-extrabold text-lg sm:text-xl md:text-2xl lg:text-3xl font-sans rounded-md sm:translate-y-1 md:translate-y-0">
+                Player 1
+            </div>
+        </div>
+
+        <!-- VS -->
+        <div class="flex flex-row items-center ">
+            <span class="glow-img-o text-6xl font-bold text-white opacity-90">
+                V
+            </span>
+            <span class="glow-img-x text-6xl font-bold text-white opacity-90" >
+                S
+            </span>
+        </div>
+        <!-- player 2 -->
+        <div class="relative">
+            <img src="~/assets/item_player.png" alt="Computer" class="w-40 md:w-48 lg:w-56">
+            <img id="player2-icon" src="~/assets/icon_x_1.png" alt="X" class="absolute w-16 md:w-20 lg:w-24 glow-img-x"
+                 style="top: 35%; left: 50%; transform  : translate(-50%, -50%);">
+            <div id="player2-label"
+                 class="player-label absolute bottom-2 sm:bottom-4 md:bottom-6 w-full text-blue text-center py-1 sm:py-2 font-extrabold text-lg sm:text-xl md:text-2xl lg:text-3xl font-sans rounded-md sm:translate-y-1 md:translate-y-0">
+                 Player 2
+            </div>
+        </div>    
+    </div>  
+    <!-- Start Button -->
+    <form asp-action="CreateGame" method="post" 
+        class="relative inline-block border-[6px] border-blue-400 shadow-2xl shadow-blue-500 animate-glow overflow-hidden 
+        rounded-[20px] xs:rounded-[22px] sm:rounded-[25px] md:rounded-[30px] lg:rounded-[40px] mt-12">
+        <button type="submit" name="isVsAI" value="false" class="block" onclick="playClickSound(event, this)">
+          
+            <img src="~/assets/button_start.png" alt="Game Icon" class="w-40 md:w-48 lg:w-60 ">
+        </button>
+    </form>
+    <!-- زر Home -->
+    <button onclick="window.location.href='@Url.Action("Choose", "Game")'" class="fixed-home-btn">
+        <img src="/assets/button_exit.png" alt="Home">
+    </button>
+</div>
+
+ 
