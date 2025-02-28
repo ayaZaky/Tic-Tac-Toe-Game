@@ -39,7 +39,7 @@ Contains the domain entities, interfaces, and core business logic:
 
 Implements the infrastructure concerns:
 - Entity Framework Core DbContext
-- Repository implementations (EF and In-Memory)
+- Repository implementations (EF)
 - Database configuration
 
 ### TicTacToe.Web
