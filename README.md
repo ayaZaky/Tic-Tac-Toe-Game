@@ -1,9 +1,17 @@
-# Tic Tac Toe Game
+![image](https://github.com/user-attachments/assets/612212a1-6127-413c-a1aa-34d8cb3aa31e)# Tic Tac Toe Game
 
 A full-stack Tic Tac Toe game built with ASP.NET Core and React. This project demonstrates a clean architecture approach with separate layers for core business logic, infrastructure, and web presentation.
 
 
-![Tic Tac Toe Game](https://images.unsplash.com/photo-1611996575749-79a3a250f948?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80)
+ScreenShots: 
+![image](https://github.com/user-attachments/assets/dae4df1f-6dd1-467b-aea7-5a29e6716877)
+![image](https://github.com/user-attachments/assets/58576dfe-8c56-4e0f-9fdf-c2e42903e9a4)
+![image](https://github.com/user-attachments/assets/269c29b2-9ab3-4b6d-b26e-433c7a1e9398)
+![image](https://github.com/user-attachments/assets/c3ec108a-1c28-4f71-858c-50db0889b2f2)
+![image](https://github.com/user-attachments/assets/7dca8c3b-6f69-4b33-a88a-218d6b625a56)
+![image](https://github.com/user-attachments/assets/1a25be86-156c-4b75-953a-c91c8c9fcda4)
+![image](https://github.com/user-attachments/assets/7646b118-ef43-4aa2-a711-b11220c82e92)
+
 ## Live Demo
 
 Try the game online: [http://tictac.somee.com/](http://tictac.somee.com/)
@@ -53,21 +61,6 @@ The ASP.NET Core MVC web application:
   - jQuery for AJAX calls
   - Bootstrap 5 for responsive design
 
-## Getting Started
-
-### Prerequisites
-
-- .NET 9.0 SDK or later
-- SQL Server 
-- Visual Studio 2022 
-
-### Installation
-
-1. Clone the repository:
-   
-2. Update the connection string in `TicTacToe.Web/appsettings.json` if needed.
-
-3. Build and run the application:
    
 ## How to Play
 
@@ -75,16 +68,5 @@ The ASP.NET Core MVC web application:
 2. Click on any empty cell to make a move
 3. The game will automatically detect wins or draws
 4. After a game ends, you can choose to replay or return to the home page
-
-
-## Game Rules
-
-- Players take turns placing their mark (X or O) on the board
-- The first player to get three of their marks in a row (horizontally, vertically, or diagonally) wins
-- If all cells are filled and no player has won, the game ends in a draw 
-
-## Database
-
-The application uses Entity Framework Core with SQL Server. Migrations are automatically applied at startup.
 
  
